@@ -1,0 +1,8 @@
+{%- set id = salt.grains.get('id').split('.')[0] %}
+
+{%- set jbio = {
+  'tech':    id.split('-')[0],
+  'number':  id.split('-')[1],
+  'domain':  salt.grains.get('id').split('.')[1:]|join('.'),
+  'timezone': 'Europe/London',
+} %}
