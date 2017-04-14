@@ -1,0 +1,21 @@
+file_client: local
+pillar_merge_lists: True
+
+fileserver_backend:
+  - roots
+  - git
+
+gitfs_remotes:
+  - git://github.com/saltstack-formulas/timezone-formula.git
+  - git://github.com/saltstack-formulas/ntp-formula.git
+  - git://github.com/saltstack-formulas/openssh-formula.git
+  - git://github.com/saltstack-formulas/nginx-formula.git
+
+file_roots:
+  base:
+    - /srv/saltstack/salt
+
+pillar_roots:
+  base:
+    - /srv/saltstack/pillar
+
