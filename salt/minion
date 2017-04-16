@@ -14,8 +14,8 @@ gitfs_remotes:
 file_roots:
   base:
     - /srv/saltstack/salt
+    - /srv/saltstack/formulas/mkdocs-deploy-formula
 
 pillar_roots:
   base:
     - /srv/saltstack/pillar
-
