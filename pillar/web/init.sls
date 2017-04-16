@@ -1,5 +1,7 @@
 roles:
   - nginx.ng
+  - nginx.ng.servers
+  - mkdocs-deploy
 
 nginx:
   ng:
@@ -7,7 +9,7 @@ nginx:
     from_source: False
     service:
       enable: True
-    vhosts:
+    servers:
       managed:
         default:
           enabled: False
@@ -31,7 +33,7 @@ nginx:
 #              - listen:
 #                - 443
 #                - ssl
-              - root
+              - root:
                 - /var/www/mkdocs
 #              - ssl_certificate:
 #                - /etc/ssl/certs/joebowman.io.crt
@@ -69,3 +71,12 @@ nginx:
                 - text/css
               - gzip_vary:
                 - 'on'
+
+mkdocs_deploy:
+  sites:
+    - name: joebowmanio
+      path: /var/www/mkdocs
+      git: https://github.com/joe-bowman/jbio-cv.git
+      commit: 1f1afa107afe030885f28496ee6f0e3ae21e3928
+      user: www-data
+      group: www-data
